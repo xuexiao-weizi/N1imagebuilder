@@ -157,13 +157,5 @@ jobs:
       run: |
         if [[ "${SERVERCHAN_SCKEY}" == "true" ]]; then
           curl -k --data chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" --data "text=🎉 主人：
-          您正在使用【${{github.repository}}】仓库的【${{matrix.target}}】文件夹编译固件中(#${{github.run_number}}),请耐心等待...... 😋" "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage"
-        fi
-    - name: 电报机器人信息通知
-      run: |
-        if [[ "${BOT}" == "TRUE" ]]; then
-          if [[ "${SERVERCHAN_SCKEY}" == "true" ]]; then
-            curl -k --data chat_id="${{ secrets.TELEGRAM_CHAT_ID }}" --data "text=我亲爱的✨主人✨：
-            您的N1成品顺利编译完成了！💐" "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage"
-          fi
+          您正在使用【${{github.repository}}】仓库编译的N1固件已经编译完成，祝贺你成功，亲爱的主人...... 😋" "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage"
         fi
